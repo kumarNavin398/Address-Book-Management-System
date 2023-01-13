@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class AddressBook
 {
-    static List<ContactPerson> contactList = new ArrayList<ContactPerson>();
+    static List<ContactPerson> contactList = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
     // method for adding contacts in list.
     public static void addContact()
@@ -28,28 +28,23 @@ public class AddressBook
         ContactPerson addressBook = new ContactPerson(firstName, lastName, email, city, state, phoneNumber, zip);
         contactList.add(addressBook);
     }
-    // main Method
-    public static void main(String[] args)
+    // method for editing existing contact
+    public void editContact()
     {
-        Scanner obj = new Scanner(System.in);
-        int flag = 1;
-        while (flag == 1)
+        Scanner nameInput = new Scanner(System.in);
+        System.out.println(" Enter the first name ");
+        String fName = nameInput.nextLine();
+        for (int index = 0; index < contactList.size(); index++)
         {
-            System.out.println(" Choose your choice : 1.Add 2.Exit ");
-            int choice = obj.nextInt();
-            switch (choice) {
-                case 1:
-                    addContact();
-                    break;
-                case 2:
-                    flag = 0;
-                    break;
-                default:
-                    System.out.println("Enter a valid choice");
-                    break;
+            if (contactList.get(index).getFirstName().equals(fName))
+            {
+                contactList.remove(index);
+                AddressBook addressBook = new AddressBook();
+                addressBook.addContact();
+            } else
+            {
+                System.out.println(" There is no contact ");
             }
         }
-
-        System.out.println(contactList);
     }
 }
