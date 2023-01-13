@@ -1,10 +1,9 @@
 package com.bridgelabz;
-public class ContactPerson
-{
-    private String firstName,lastName, city,state, email ;
-    private long phoneNumber,zip;
-    ContactPerson(String firstName, String lastName, String email, String city, String state,long phoneNumber, long zip)
-    {
+public class ContactPerson {
+    private String firstName, lastName, city, state, email;
+    private long zip, phoneNumber;
+
+    ContactPerson(String firstName, String lastName, String email, String city, String state, long phoneNumber, long zip) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
@@ -14,67 +13,67 @@ public class ContactPerson
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
-    public String getFirstName()
-    {
+
+    public String getfirstName() {
         return firstName;
     }
-    public void setFirstName(String firstName)
-    {
+
+    public void setfirstname(String firstName) {
         this.firstName = firstName;
     }
-    public String getLastName()
-    {
+
+    public String getlastname() {
         return lastName;
     }
-    public void setLastName(String lastName)
-    {
+
+    public void setlastName(String lastName) {
         this.lastName = lastName;
     }
-    public String getCity()
-    {
+
+    public String getCity() {
         return city;
     }
-    public void setCity(String city)
-    {
+
+    public void setCity(String city) {
         this.city = city;
     }
-    public String getState()
-    {
+
+    public String getState() {
         return state;
     }
-    public void setState(String state)
-    {
+
+    public void setState(String state) {
         this.state = state;
     }
-    public String getEmail()
-    {
+
+    public String getEmail() {
         return email;
     }
-    public void setEmail(String email)
-    {
+
+    public void setEmail(String email) {
         this.email = email;
     }
-    public long getPhoneNumber()
-    {
-        return phoneNumber;
-    }
-    public void setPhoneNumber(long phoneNumber)
-    {
-        this.phoneNumber = phoneNumber;
-    }
-    public long getZip()
-    {
+
+    public long getZip() {
         return zip;
     }
-    public void setZip(long zip)
-    {
+
+    public void setZip(int zip) {
         this.zip = zip;
     }
 
+    public long getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhonenumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     @Override
-    public String toString()
-    {
-        return "ContactPerson [firstName=" + firstName + ", lastName=" + lastName + ", city=" + city + ", state="
-                + state + ", email=" + email + ", phoneNumber=" + phoneNumber + ", zip=" + zip + "]";
+    public String toString() {
+        return "Contact details:" + "\n" + "FirstName=" + firstName + "\n" + "LastName=" + lastName + "\n" + "City="
+                + city + "\n" + "State=" + state + "\n" + "Zip=" + zip + "\n" +
+                "PhoneNumber=" + phoneNumber + "\n" + "Email=" + email;
     }
 }
