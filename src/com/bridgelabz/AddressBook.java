@@ -41,6 +41,7 @@ public class AddressBook {
         }
 
     }
+
     void editPerson(String name, ArrayList<Contact> list) {
         if (list.size() == 0) {
             System.out.println("Addressbook is empty.Please add First");
@@ -58,8 +59,12 @@ public class AddressBook {
                 System.out.println("No contact with the given name exist");
             }
         }
+
     }
+
     public static void main(String[] args) {
+        // TODO Auto-generated method stub
+
         System.out.println("Welcome to Address Book Program ");
 
         BookList shelf = new BookList();
@@ -90,7 +95,8 @@ public class AddressBook {
                 shelf.showPersonsByState(placeName);
                 continue;
             }
-            int result = shelf.checkBook(bookName);//// (It can return 0 or 1)It will return 1 if book exist b and breakdown loop
+            int result = shelf.checkBook(bookName);//// (It can return 0 or 1)It will return 1 if book exist b and break
+            //// down loop
             int condition = 0;///// It will keep check on the addressbook created or not
             while (true) {
                 if (result == 1) {
@@ -102,26 +108,33 @@ public class AddressBook {
                 int input = scan.nextInt();
 
                 if (input == 0) {
+
                     addressBook.addContact();
+
                 } else if (input == 1) {
                     Scanner scan1 = new Scanner(System.in);
                     System.out.println("Enter the first name of person you to edit ");
                     String name = scan1.nextLine();
                     addressBook.editPerson(name, addressBook.list);
+
                 } else if (input == 2) {
                     Scanner scan2 = new Scanner(System.in);
                     System.out.println("Enter the first name of the person you want to delete : ");
                     String name = scan2.nextLine();
                     addressBook.deletePerson(name, addressBook.list);
                 }
+
                 else if (input == 3) {
                     shelf.addBook(bookName, addressBook);
                     break;
                 }
+
                 else {
                     System.out.println("Enter the valid command");
                 }
             }
         }
+
     }
+
 }
