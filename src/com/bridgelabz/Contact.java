@@ -32,4 +32,3 @@ public class Contact {
         System.out.println("Enter zip : ");
         this.zip = scan.nextLine();
     }
-}
