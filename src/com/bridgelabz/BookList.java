@@ -14,7 +14,6 @@ public class BookList {
         System.out.println("Book " + name + " added successfully");
 
     }
-
     void addInfo(Contact value) {
         Scanner scan = new Scanner(System.in);
         System.out.println("First Name :");
@@ -34,20 +33,30 @@ public class BookList {
         System.out.println("Enter zip : ");
         value.zip = scan.nextLine();
     }
-
-    void showPersons(String placeName) {
+    void showPersonsByCity(String placeName) {
         if(books.size() == 0) {
             System.out.println("Booklist is empty");
             return;
         }
         for (int i = 0; i < books.size(); i++) {
-            List<Contact> matchedContact = books.get(i).list.stream().filter(x -> x.city.equals(placeName)|| x.state.equals(placeName))
+            List<Contact> matchedContact = books.get(i).list.stream().filter(x -> x.city.equals(placeName))
                     .collect(Collectors.toList());
             matchedContact.stream().forEach(x -> System.out.println(x.firstName));
 
         }
     }
+    void showPersonsByState(String placeName) {
+        if(books.size() == 0) {
+            System.out.println("Booklist is empty");
+            return;
+        }
+        for (int i = 0; i < books.size(); i++) {
+            List<Contact> matchedContact = books.get(i).list.stream().filter(x -> x.state.equals(placeName))
+                    .collect(Collectors.toList());
+            matchedContact.stream().forEach(x -> System.out.println(x.firstName));
 
+        }
+    }
     void operations(ArrayList<AddressBook> books, int i) {
         Scanner input = new Scanner(System.in);
         int condition1 = 0;/// This is for checking the contact name exist or not
