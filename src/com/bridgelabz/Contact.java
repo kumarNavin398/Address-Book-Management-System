@@ -33,4 +33,3 @@ public class Contact {
         this.zip = scan.nextLine();
     }
 }
-
