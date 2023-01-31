@@ -77,3 +77,4 @@ public class ContactPerson {
                 "PhoneNumber=" + phoneNumber + "\n" + "Email=" + email;
     }
 }
+
