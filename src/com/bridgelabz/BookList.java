@@ -8,12 +8,14 @@ import java.util.stream.Collectors;
 public class BookList {
     static ArrayList<AddressBook> books = new ArrayList<AddressBook>();
 
+
     void addBook(String name, AddressBook book) {
         book.bookName = name;
         this.books.add(book);
         System.out.println("Book " + name + " added successfully");
 
     }
+
     void addInfo(Contact value) {
         Scanner scan = new Scanner(System.in);
         System.out.println("First Name :");
@@ -33,7 +35,9 @@ public class BookList {
         System.out.println("Enter zip : ");
         value.zip = scan.nextLine();
     }
+
     void showPersonsByCity(String placeName) {
+        int count = 0;
         if(books.size() == 0) {
             System.out.println("Booklist is empty");
             return;
@@ -41,11 +45,15 @@ public class BookList {
         for (int i = 0; i < books.size(); i++) {
             List<Contact> matchedContact = books.get(i).list.stream().filter(x -> x.city.equals(placeName))
                     .collect(Collectors.toList());
+            count += books.get(i).list.stream().filter(x -> x.city.equals(placeName)).count();
             matchedContact.stream().forEach(x -> System.out.println(x.firstName));
 
         }
+        System.out.println("Number of persons are : " + count);
     }
+
     void showPersonsByState(String placeName) {
+        int count = 0;
         if(books.size() == 0) {
             System.out.println("Booklist is empty");
             return;
@@ -53,10 +61,12 @@ public class BookList {
         for (int i = 0; i < books.size(); i++) {
             List<Contact> matchedContact = books.get(i).list.stream().filter(x -> x.state.equals(placeName))
                     .collect(Collectors.toList());
+            count += books.get(i).list.stream().filter(x -> x.state.equals(placeName)).count();
             matchedContact.stream().forEach(x -> System.out.println(x.firstName));
-
         }
+        System.out.println("Number of persons are : " + count);
     }
+
     void operations(ArrayList<AddressBook> books, int i) {
         Scanner input = new Scanner(System.in);
         int condition1 = 0;/// This is for checking the contact name exist or not
